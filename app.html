@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2F6F5E" />
+  <title>Home Manager</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="img/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <style>
+    /* Only visible for a moment while the app decides which screen to open. */
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #F6F7F2; }
+    .mark { width: 64px; height: 64px; border-radius: 18px; background: #2F6F5E; display: grid; place-items: center; }
+    .mark svg { width: 34px; height: 34px; }
+    noscript { font-family: system-ui, sans-serif; color: #1E2A22; padding: 24px; text-align: center; }
+  </style>
+</head>
+<body>
+  <!-- Start page of the app (the home-screen icon opens it; invite links point here). -->
+  <div class="mark" aria-label="Home Manager">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9.5 20v-6h5v6"/></svg>
+  </div>
+  <noscript>Home Manager needs JavaScript. · Ilova uchun JavaScript kerak. · Для приложения нужен JavaScript.</noscript>
+
+  <script src="js/core.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/flow.js"></script>
+  <script>
+    HMFlow.captureJoin();
+    HMFlow.go();
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2F6F5E" />
+  <title>Home Manager</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="img/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body data-page="family">
+  <div class="auth">
+    <header class="auth-top">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9.5 20v-6h5v6"/></svg></span>
+        <span>Home Manager</span>
+      </a>
+      <div data-lang-switch></div>
+    </header>
+
+    <main class="auth-main">
+      <!-- Parent: create a family -->
+      <section id="create-panel" hidden>
+        <h1 class="title" data-i18n="fam.createTitle">Create your family</h1>
+        <p class="lead" data-i18n="fam.createLead"></p>
+        <form id="create-form" novalidate>
+          <div class="field">
+            <label for="family-name" data-i18n="fam.name"></label>
+            <input class="input" id="family-name" type="text" maxlength="40" autocomplete="off" data-i18n-ph="fam.namePh" aria-describedby="family-name-err" />
+            <p class="err" id="family-name-err" role="alert"></p>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit" data-i18n="fam.create">Create family</button>
+        </form>
+        <div class="divider"><span data-i18n="fam.or">or</span></div>
+        <button class="btn btn-outline btn-block" type="button" id="show-join" data-i18n="fam.haveCode">I have a family code</button>
+      </section>
+
+      <!-- Child (or a second parent): join with the code -->
+      <section id="join-panel" hidden>
+        <h1 class="title" id="join-title" data-i18n="fam.joinTitle">Join your family</h1>
+        <p class="lead" id="join-lead" data-i18n="fam.joinLead"></p>
+        <form id="join-form" novalidate>
+          <div class="field">
+            <label for="code" data-i18n="fam.code"></label>
+            <input class="input code" id="code" type="text" maxlength="19" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX" aria-describedby="code-err" />
+            <p class="err" id="code-err" role="alert"></p>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit" data-i18n="fam.join">Join family</button>
+        </form>
+        <p class="auth-alt"><button class="link-btn" type="button" id="back-to-create" data-i18n="fam.createTitle" hidden>Create your family</button></p>
+      </section>
+
+      <!-- Parent, right after creating: invite the children -->
+      <section id="invite-panel" hidden>
+        <h1 class="title" data-i18n="fam.inviteTitle">Invite your children</h1>
+        <p class="lead" data-i18n="fam.inviteLead"></p>
+        <div class="invite">
+          <div class="code-box" id="invite-code"></div>
+          <div class="invite-actions">
+            <button class="btn btn-primary" type="button" id="share-link"><span data-icon="share"></span><span data-i18n="fam.share">Send the link</span></button>
+            <button class="btn btn-outline" type="button" id="copy-link"><span data-icon="copy"></span><span data-i18n="fam.copy">Copy link</span></button>
+          </div>
+        </div>
+        <p class="hint" style="margin:14px 2px 22px" data-i18n="fam.later"></p>
+        <button class="btn btn-outline btn-block" type="button" id="invite-done" data-i18n="fam.continue">Continue</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/core.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/flow.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
